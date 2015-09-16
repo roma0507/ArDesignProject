@@ -25,6 +25,9 @@ public class ArDesignActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ar_design_activity);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ar_logo);
+
         if (u == null)
             this.u = new Util();
 
