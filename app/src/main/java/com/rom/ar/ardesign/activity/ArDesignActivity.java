@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.metaio.sdk.MetaioDebug;
 import com.metaio.tools.io.AssetsManager;
@@ -46,6 +45,11 @@ public class ArDesignActivity extends AppCompatActivity {
             //TODO
             //mostrar dialogo;
         }
+    }
+
+    public void listarModelos(View v) {
+        Intent mIntent = new Intent(getApplicationContext(), TabsActivity.class);
+        startActivity(mIntent);
     }
 
     private class AssetsExtracter extends AsyncTask<Integer, Integer, Boolean> {

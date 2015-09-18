@@ -18,7 +18,7 @@
             android:text="Nuevo Diseño"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:onClick="newArDesign" />
+            android:onClick="listarModelos" />
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
