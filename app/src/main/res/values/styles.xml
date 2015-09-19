@@ -7,4 +7,10 @@
         <item name="colorPrimaryDark">#004cf5</item>
     </style>
 
+    <style name="Theme.FullScreen" parent="android:Theme">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>
