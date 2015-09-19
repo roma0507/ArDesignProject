@@ -30,7 +30,7 @@
         android:contentDescription="@string/btnClose"
         android:onClick="newArDesign"
         android:tag="2"
-        android:src="@drawable/ladrillo2"
+        android:src="@drawable/ladrillos_b"
         android:scaleType="fitCenter"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />

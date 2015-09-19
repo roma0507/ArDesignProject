@@ -16,7 +16,6 @@ import com.metaio.sdk.MetaioDebug;
 import com.metaio.sdk.jni.IGeometry;
 import com.metaio.sdk.jni.IMetaioSDKCallback;
 import com.metaio.sdk.jni.ImageStruct;
-import com.metaio.sdk.jni.Rotation;
 import com.rom.ar.ardesign.R;
 import com.rom.ar.ardesign.service.GeometryService;
 import com.rom.ar.metaio.ARViewActivity;
@@ -70,7 +69,7 @@ public class ArTrackingViewActivity extends ARViewActivity {
         mModel = this.service.getObjModel(this.mModelPath);
 
         mModel.setRadarVisibility(true);
-        mModel.setRotation(new Rotation(90f, 0f, 0f));
+        //mModel.setRotation(new Rotation(90f, 0f, 0f));
 
         if (mModel != null)
             mModel.setCoordinateSystemID(1);

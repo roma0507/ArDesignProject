@@ -7,27 +7,38 @@
     tools:context="com.rom.ar.ardesign.activity.ArTrackingViewActivity">
 
     <ImageButton
-    android:id="@+id/cancel"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentRight="true"
-    android:background="@android:color/transparent"
-    android:contentDescription="@string/btnClose"
-    android:onClick="finalizarTracking"
-    android:src="@drawable/cancel" />
+        android:id="@+id/cancel"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/btn_circle"
+        android:contentDescription="@string/btnClose"
+        android:onClick="finalizarTracking"
+        android:src="@drawable/door9"
+        android:scaleType="fitCenter"
+        android:focusable="true"
+        android:adjustViewBounds="true"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+    />
 
     <ImageButton
+        android:layout_width="50dip"
+        android:layout_height="50dip"
         android:id="@+id/clean"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
         android:contentDescription="@string/btnClean"
+        android:background="@drawable/btn_circle"
+        android:clickable="true"
         android:onClick="limpiarTrankignView"
-        android:src="@drawable/clean"
+        android:src="@drawable/clean11"
+        android:scaleType="fitCenter"
+        android:focusable="true"
+        android:adjustViewBounds="true"
+        android:padding="10dp"
         android:layout_below="@+id/cancel"
         android:layout_alignLeft="@+id/cancel"
-        android:layout_alignStart="@+id/cancel" />
-
+        android:layout_alignStart="@+id/cancel"
+        />
     <ImageButton
         android:layout_width="50dip"
         android:layout_height="50dip"

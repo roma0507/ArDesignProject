@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.metaio.sdk.MetaioDebug;
 import com.metaio.tools.io.AssetsManager;
@@ -14,10 +15,13 @@ import com.rom.ar.ardesign.utils.Util;
 
 import java.io.IOException;
 
-public class ArDesignActivity extends AppCompatActivity {
+public class ArDesignActivity extends AppCompatActivity  {
 
     private Util u = null;
     AssetsExtracter mTask;
+
+
+    private String selectedImagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,22 @@ public class ArDesignActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ar_logo);
 
+        //File folder = new File(Environment.getExternalStorageDirectory().getPath()+"/Pictures/Metaio_Capturas/");
+        //allFiles = folder.listFiles();
+
+        //SCAN_PATH=Environment.getExternalStorageDirectory().getPath().toString()+"/Pictures/Metaio_Capturas/";
+        Button scanBtn = (Button)findViewById(R.id.misDiseños);
+        scanBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent(Intent.ACTION_VIEW,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                galleryIntent.setType("image/png");
+                // Start the Intent
+                startActivity(galleryIntent);
+            }
+        });
+
         if (u == null)
             this.u = new Util();
 
@@ -34,25 +54,12 @@ public class ArDesignActivity extends AppCompatActivity {
         mTask.execute(0);
     }
 
-    /*
-    public void newArDesign(View mV) {
-
-        final Bundle mParams = this.u.getViewModelParams(Long.parseLong((String) mV.getTag()));
-        if (mParams != null) {
-            Intent mIntent = new Intent(getApplicationContext(), ArTrackingViewActivity.class);
-            mIntent.putExtras(mParams);
-            startActivity(mIntent);
-        }else {
-            //TODO
-            //mostrar dialogo;
-        }
-    }
-    */
 
     public void listarModelos(View v) {
         Intent mIntent = new Intent(getApplicationContext(), TabsActivity.class);
         startActivity(mIntent);
     }
+
 
     private class AssetsExtracter extends AsyncTask<Integer, Integer, Boolean> {
 
@@ -68,4 +75,4 @@ public class ArDesignActivity extends AppCompatActivity {
         }
     }
 
-}
+  }
