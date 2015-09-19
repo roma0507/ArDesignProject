@@ -7,21 +7,26 @@
     tools:context="com.rom.ar.ardesign.activity.ArTrackingViewActivity">
 
     <ImageButton
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/btnClose"
-        android:onClick="onButtonClick"
-        android:src="@drawable/cancel" />
+    android:id="@+id/cancel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:background="@android:color/transparent"
+    android:contentDescription="@string/btnClose"
+    android:onClick="finalizarTracking"
+    android:src="@drawable/cancel" />
 
-    <Button
-        android:id="@+id/resetButton"
+    <ImageButton
+        android:id="@+id/clean"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onResetButtonClick"
-        android:text="@string/btonReset" />
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/btnClean"
+        android:onClick="limpiarTrankignView"
+        android:src="@drawable/clean"
+        android:layout_below="@+id/cancel"
+        android:layout_alignLeft="@+id/cancel"
+        android:layout_alignStart="@+id/cancel" />
 
     <ImageButton
         android:layout_width="50dip"

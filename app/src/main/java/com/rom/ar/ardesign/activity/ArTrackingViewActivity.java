@@ -16,6 +16,7 @@ import com.metaio.sdk.MetaioDebug;
 import com.metaio.sdk.jni.IGeometry;
 import com.metaio.sdk.jni.IMetaioSDKCallback;
 import com.metaio.sdk.jni.ImageStruct;
+import com.metaio.sdk.jni.Rotation;
 import com.rom.ar.ardesign.R;
 import com.rom.ar.ardesign.service.GeometryService;
 import com.rom.ar.metaio.ARViewActivity;
@@ -42,6 +43,7 @@ public class ArTrackingViewActivity extends ARViewActivity {
 
         if (service == null)
             this.service = new GeometryService(this.getApplicationContext(), this.metaioSDK);
+        this.limpiarModelo();
         mCallbackHandler = new MetaioSDKCallbackHandler();
         final Bundle b = getIntent().getExtras();
         this.mTrackingConfigPath =  b.getString("mTrackingConfigPath");
@@ -55,8 +57,6 @@ public class ArTrackingViewActivity extends ARViewActivity {
         return R.layout.ar_tracking_view_activity;
     }
 
-
-
     @Override
     protected IMetaioSDKCallback getMetaioSDKCallbackHandler()
     {
@@ -68,6 +68,9 @@ public class ArTrackingViewActivity extends ARViewActivity {
 
         mPerfilModel = this.service.getObjModel(this.mPerfilModelPath);
         mModel = this.service.getObjModel(this.mModelPath);
+
+        mModel.setRadarVisibility(true);
+        mModel.setRotation(new Rotation(90f, 0f, 0f));
 
         if (mModel != null)
             mModel.setCoordinateSystemID(1);
@@ -81,11 +84,12 @@ public class ArTrackingViewActivity extends ARViewActivity {
     @Override
     protected void onGeometryTouched(IGeometry geometry) {}
 
-    public void onButtonClick(View v) {
+    public void finalizarTracking (View v) {
+        this.limpiarModelo();
         finish();
     }
 
-    public void onResetButtonClick(View v) {
+    public void limpiarTrankignView (View v) {
         this.service.resetArView();
     }
 
@@ -98,63 +102,49 @@ public class ArTrackingViewActivity extends ARViewActivity {
        metaioSDK.requestScreenshot();
     }
 
+    private void limpiarModelo () {
+        this.mModelPath = null;
+        this.mModel = null;
+    }
 
-    final class MetaioSDKCallbackHandler extends IMetaioSDKCallback
-    {
-        /**
-         * Get path to Pictures directory if it exists
-         *
-         * @return Path to Pictures directory on the device if found, else <code>null</code>
-         */
-        private File getPicturesDirectory()
-        {
+
+    final class MetaioSDKCallbackHandler extends IMetaioSDKCallback {
+
+        private File getPicturesDirectory() {
             File picPath = null;
-
-            try
-            {
+            try {
                 picPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 File path = new File(picPath, "Metaio_Capturas");
                 boolean success = path.mkdirs() || path.isDirectory();
-                if (!success)
-                {
+                if (!success) {
                     path = new File(Environment.getExternalStorageDirectory(), "Pictures");
                 }
                 success = path.mkdirs() || path.isDirectory();
-                if (!success)
-                {
+                if (!success) {
                     path = Environment.getDataDirectory();
                 }
-
                 return path.getAbsoluteFile();
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 return null;
             }
         }
 
         @Override
         public void onSDKReady() {
-            // show GUI
-            runOnUiThread(new Runnable()
-            {
+            runOnUiThread(new Runnable() {
                 @Override
-                public void run()
-                {
+                public void run() {
                     mGUIView.setVisibility(View.VISIBLE);
                 }
             });
         }
 
-        // callback function for taking images using SDK
         @Override
         public void onCameraImageSaved(final File filePath) {
-            // save the tracking values in case the application exits improperly
-            runOnUiThread(new Runnable()
-            {
+            runOnUiThread(new Runnable() {
                 @Override
-                public void run()
-                {
+                public void run() {
                     if (filePath.getPath().length() > 0) {
                         metaioSDK.setImage(filePath);
                     }
@@ -163,11 +153,9 @@ public class ArTrackingViewActivity extends ARViewActivity {
         }
 
         @Override
-        public void onScreenshotImage(ImageStruct image)
-        {
+        public void onScreenshotImage(ImageStruct image) {
             final File directory = getPicturesDirectory();
-            if (directory == null)
-            {
+            if (directory == null) {
                 image.release();
                 image.delete();
                 MetaioDebug.log(Log.ERROR, "Could not find pictures directory, not saving screenshot");
@@ -175,27 +163,24 @@ public class ArTrackingViewActivity extends ARViewActivity {
             }
             // Creating directory
             directory.mkdirs();
-            try
-            {
+            try {
                 // Creating file
                 final File screenshotFile = new File(directory, "paredes_" + System.currentTimeMillis() + ".jpg");
                 screenshotFile.createNewFile();
                 FileOutputStream stream = new FileOutputStream(screenshotFile);
                 boolean result = false;
                 Bitmap bitmap = image.getBitmap();
-                try                {
+                try{
                     result = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 }
-                finally
-                {
+                finally{
                     // release screenshot ImageStruct
                     image.release();
                     image.delete();
                     stream.close();
                 }
 
-                if (!result)
-                {
+                if (!result) {
                     MetaioDebug.log(Log.ERROR, "Error al guardar captura " + screenshotFile);
                     return;
                 }
@@ -209,12 +194,10 @@ public class ArTrackingViewActivity extends ARViewActivity {
                     @Override
                     public void run() {
                         String message = "La imagen ha sido agregada a la galeria.";
-                        if (url == null)
-                        {
+                        if (url == null) {
                             message = "No se puede guardar la captura";
                         }
-                        else
-                        {
+                        else {
                             MediaScannerConnection.scanFile(getApplicationContext(),
                                     new String[]{screenshotFile.getAbsolutePath()}, new String[]{"image/jpg"},
                                     new MediaScannerConnection.OnScanCompletedListener() {
@@ -230,12 +213,9 @@ public class ArTrackingViewActivity extends ARViewActivity {
                     }
                 });
             }
-            catch (IOException e)
-            {
+            catch (IOException e) {
                 MetaioDebug.printStackTrace(Log.ERROR, e);
             }
         }
     }
-
-
 }

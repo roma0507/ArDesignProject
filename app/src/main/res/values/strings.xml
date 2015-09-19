@@ -5,9 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_ar_tracking_view">ArTrackingViewActivity</string>
 
-    <string name="btnReset">Reset</string>
+    <string name="btnClean">Limpiar</string>
     <string name="btnCapturar">Capturar</string>
-    <string name="btnClose">close</string>
-    <string name="btonReset">RESET MODELO</string>
+    <string name="btnClose">cerrar</string>
 
 </resources>

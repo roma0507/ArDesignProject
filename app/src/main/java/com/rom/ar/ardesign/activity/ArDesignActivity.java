@@ -34,6 +34,7 @@ public class ArDesignActivity extends AppCompatActivity {
         mTask.execute(0);
     }
 
+    /*
     public void newArDesign(View mV) {
 
         final Bundle mParams = this.u.getViewModelParams(Long.parseLong((String) mV.getTag()));
@@ -46,6 +47,7 @@ public class ArDesignActivity extends AppCompatActivity {
             //mostrar dialogo;
         }
     }
+    */
 
     public void listarModelos(View v) {
         Intent mIntent = new Intent(getApplicationContext(), TabsActivity.class);

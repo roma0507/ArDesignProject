@@ -2,7 +2,9 @@ package com.rom.ar.ardesign.utils.enumerator;
 
 public enum ModelParams {
 
-    PARED_LADRILLO(1L, "ARSources/DesignModels/VizAidModel/silueta.obj", "ARSources/DesignModels/muroLadri.obj", "ARSources/TrackingConfig/Tracking.xml");
+    PARED_LADRILLO(1L, "ARSources/DesignModels/VizAidModel/eje_coordenadas.obj", "ARSources/DesignModels/pared/pared_ladrillo.obj", "ARSources/TrackingConfig/Tracking.xml"),
+
+    PARED_LADRILLO_B(2L, "ARSources/DesignModels/VizAidModel/eje_coordenadas.obj", "ARSources/DesignModels/pared/pared_ladrillo_b.obj", "ARSources/TrackingConfig/Tracking.xml");
 
     private final Long id;
     private final String strPerfilPath;
