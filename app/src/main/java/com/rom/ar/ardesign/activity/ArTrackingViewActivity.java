@@ -68,9 +68,6 @@ public class ArTrackingViewActivity extends ARViewActivity {
         mPerfilModel = this.service.getObjModel(this.mPerfilModelPath);
         mModel = this.service.getObjModel(this.mModelPath);
 
-        mModel.setRadarVisibility(true);
-        //mModel.setRotation(new Rotation(90f, 0f, 0f));
-
         if (mModel != null)
             mModel.setCoordinateSystemID(1);
 
