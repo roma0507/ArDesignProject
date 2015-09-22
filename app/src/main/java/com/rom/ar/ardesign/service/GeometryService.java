@@ -11,11 +11,23 @@ import com.metaio.tools.io.AssetsManager;
 
 import java.io.File;
 
+/**
+ * Clase que genera el archivo de configuración y tracking de los modelos.
+ *
+ * @author Reinel Ortiz
+ * @version 12.9.2015
+ */
 public class GeometryService {
 
     private ContextWrapper ctx;
     private IMetaioSDKAndroid metaio;
 
+    /**
+     * Constructor de la clase.
+     *
+     * @param ctx
+     * @param metaioSDK Servicio de la libreria Metaio
+     */
     public GeometryService (final Context ctx, final IMetaioSDKAndroid metaioSDK) {
         this.ctx = new ContextWrapper(ctx);
         this.metaio = metaioSDK;
@@ -23,8 +35,9 @@ public class GeometryService {
 
     /**
      * Este método contrulle el archivo de configuración para el rastreo.
+     *
      * @param pathTrackingConfigFile
-     * @return result
+     * @return Si el archivo de configuración existe.
      */
     public boolean setTrackingConfig (final String pathTrackingConfigFile) {
         boolean result = false;
@@ -41,8 +54,9 @@ public class GeometryService {
     }
 
     /**
-     * Este método crea un objeto IGeometry.
-     * @param pathModel
+     * Este método crea un objeto IGeometry con el modelo seleccionado.
+     *
+     * @param pathModel path del modelo seleccionado.
      * @return geometry
      */
     public IGeometry getObjModel (final String pathModel) {

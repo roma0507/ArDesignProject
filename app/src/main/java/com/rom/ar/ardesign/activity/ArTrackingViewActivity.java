@@ -24,6 +24,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * Activity principal que contiene las acciones para el tracking, la superposicion de
+ * materiales y texturas y la captura de imagenes.
+ *
+ * @author Reinel Ortiz
+ * @version 12.9.2015
+ */
 public class ArTrackingViewActivity extends ARViewActivity {
 
     private MetaioSDKCallbackHandler mCallbackHandler;
@@ -36,10 +43,15 @@ public class ArTrackingViewActivity extends ARViewActivity {
 
     private GeometryService service;
 
+    /**
+     * Método que se ejecuta al crear el Activity e instancia
+     * los atributos de la clase.
+     *
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (service == null)
             this.service = new GeometryService(this.getApplicationContext(), this.metaioSDK);
         this.limpiarModelo();
@@ -51,14 +63,19 @@ public class ArTrackingViewActivity extends ARViewActivity {
         mImageFile = new File(Environment.getExternalStorageDirectory(), "target.jpg");
     }
 
+    /**
+     * Metodo que obtiene el indicador del layout que se usara
+     * para sobreponer el modelo.
+     *
+     * @return int indicador del layout.
+     */
     @Override
     protected int getGUILayout() {
         return R.layout.ar_tracking_view_activity;
     }
 
     @Override
-    protected IMetaioSDKCallback getMetaioSDKCallbackHandler()
-    {
+    protected IMetaioSDKCallback getMetaioSDKCallbackHandler() {
         return mCallbackHandler;
     }
 
