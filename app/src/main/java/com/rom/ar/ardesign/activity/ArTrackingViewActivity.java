@@ -74,11 +74,19 @@ public class ArTrackingViewActivity extends ARViewActivity {
         return R.layout.ar_tracking_view_activity;
     }
 
+    /**
+     * Inicializa el controllador.
+     *
+     * @return controlador.
+     */
     @Override
     protected IMetaioSDKCallback getMetaioSDKCallbackHandler() {
         return mCallbackHandler;
     }
 
+    /**
+     * Inicializa los componentes de la clase.
+     */
     @Override
     protected void loadContents() {
 
@@ -94,35 +102,71 @@ public class ArTrackingViewActivity extends ARViewActivity {
         this.service.setTrackingConfig(this.mTrackingConfigPath);
     }
 
+    /**
+     * Metodo para gestionar el touch sobre el material o la textura.
+     * @param geometry Geometry that is touched
+     */
     @Override
     protected void onGeometryTouched(IGeometry geometry) {}
 
+    /**
+     * Limpia el modelo y regresa a la paleta de texturas y materiales.
+     * @param v Componentes de interfaz de usuario.
+     */
     public void finalizarTracking (View v) {
         this.limpiarModelo();
         finish();
     }
 
+    /**
+     * Reinicia el tracking en la pantalla.
+     *
+      * @param v Componentes de interfaz de usuario.
+     */
     public void limpiarTrankignView (View v) {
         this.service.resetArView();
     }
 
+    /**
+     * Regresa a la bandeja de materiales y texturas.
+     *
+     * @param mV Componentes de interfaz de usuario.
+     */
     public void goToHome(View mV) {
         Intent mIntent = new Intent(this, ArDesignActivity.class);
         startActivity(mIntent);
     }
 
+    /**
+     * Captura el evento de captura de imagen provista por metaio.
+     *
+     * @param v Componentes de interfaz de usuario.
+     */
     public void capturar(View v) {
        metaioSDK.requestScreenshot();
     }
 
+
+    /**
+     * Resetea la textura o material seleccionado.
+     */
     private void limpiarModelo () {
         this.mModelPath = null;
         this.mModel = null;
     }
 
-
+    /**
+     * Clase interna que contiene los metodos para la captura
+     * de imagenes y la configuracion del directorio donde se va a almacenar.
+     */
     final class MetaioSDKCallbackHandler extends IMetaioSDKCallback {
 
+        /**
+         * Busca si existe el directorio donde se van a almacenar
+         * las capturas y si no existe crea el directorio.
+         *
+         * @return Directorio de almacenamiento de caturas.
+         */
         private File getPicturesDirectory() {
             File picPath = null;
             try {
@@ -143,6 +187,9 @@ public class ArTrackingViewActivity extends ARViewActivity {
             }
         }
 
+        /**
+         * Inicializa el layout.
+         */
         @Override
         public void onSDKReady() {
             runOnUiThread(new Runnable() {
@@ -153,6 +200,11 @@ public class ArTrackingViewActivity extends ARViewActivity {
             });
         }
 
+        /**
+         * Metodo de mataio para almacenar la imagen.
+         *
+         * @param filePath directorio de la captura.
+         */
         @Override
         public void onCameraImageSaved(final File filePath) {
             runOnUiThread(new Runnable() {
@@ -165,6 +217,11 @@ public class ArTrackingViewActivity extends ARViewActivity {
             });
         }
 
+        /**
+         * Metodo que almacena la captura en la memoria del dispositivo.
+         *
+         * @param image Imagen a guardar.
+         */
         @Override
         public void onScreenshotImage(ImageStruct image) {
             final File directory = getPicturesDirectory();
