@@ -16,10 +16,10 @@
             android:layout_height="80dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
-            android:onClick="onConstruccion"
+            android:onClick="newArDesign"
             android:src="@drawable/ceramica"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
+            android:tag="8"
             android:scaleType="fitCenter"
             android:elevation="5dp"/>
 
@@ -29,11 +29,12 @@
             android:layout_height="80dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
-            android:onClick="onConstruccion"
+            android:onClick="newArDesign"
             android:src="@drawable/pisoladrillo"
             android:scaleType="fitCenter"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:tag="9"
             android:elevation="5dp"/>
 
         <ImageButton
@@ -42,12 +43,56 @@
             android:layout_height="80dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
-            android:onClick="onConstruccion"
+            android:onClick="newArDesign"
             android:src="@drawable/pisomadera"
             android:scaleType="fitCenter"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
+            android:tag="10"
             android:elevation="5dp"/>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/btnClose"
+            android:onClick="newArDesign"
+            android:src="@drawable/ceramica"
+            android:scaleType="fitCenter"
+            android:elevation="5dp"
+            android:tag="11"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/btnClose"
+            android:onClick="newArDesign"
+            android:src="@drawable/pisoladrillo"
+            android:scaleType="fitCenter"
+            android:elevation="5dp"
+            android:tag="12"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/btnClose"
+            android:onClick="newArDesign"
+            android:src="@drawable/pisomadera"
+            android:scaleType="fitCenter"
+            android:elevation="5dp"
+            android:tag="13"
+            android:layout_alignTop="@+id/imageButton4"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
