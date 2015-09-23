@@ -62,7 +62,6 @@ public class GeometryService {
     public IGeometry getObjModel (final String pathModel) {
         IGeometry geometry = null;
         try {
-
             final File modelPath = AssetsManager.getAssetPathAsFile(this.ctx.getApplicationContext(), pathModel);
             geometry = this.metaio.createGeometry(modelPath);
             MetaioDebug.log("Loaded geometry " + modelPath);

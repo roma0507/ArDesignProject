@@ -1,12 +1,18 @@
 package com.rom.ar.ardesign.activity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.metaio.sdk.MetaioDebug;
+import com.metaio.tools.io.AssetsManager;
 import com.rom.ar.ardesign.R;
+
+import java.io.IOException;
 
 /**
  * Activity principal que contiene las acciones para redireccionar a la galeria
@@ -16,6 +22,10 @@ import com.rom.ar.ardesign.R;
  * @version 12.9.2015
  */
 public class ArDesignActivity extends AppCompatActivity  {
+
+
+    AssetsExtracter mTask;
+
 
     /**
      * Método que se ejecuta al crear el Activity e instancia
@@ -45,6 +55,8 @@ public class ArDesignActivity extends AppCompatActivity  {
                 startActivity(galleryIntent);
             }
         });
+        mTask = new AssetsExtracter();
+        mTask.execute(0);
     }
 
     /**
@@ -55,6 +67,23 @@ public class ArDesignActivity extends AppCompatActivity  {
     public void listarModelos(View v) {
         Intent mIntent = new Intent(getApplicationContext(), TabsActivity.class);
         startActivity(mIntent);
+    }
+
+    /**
+     * Clase interna que contiene el metodo para cargar los elementos de la carpeta Assets.
+     */
+    private class AssetsExtracter extends AsyncTask<Integer, Integer, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(Integer... params) {
+            try {
+                AssetsManager.extractAllAssets(getApplicationContext(), true);
+            } catch (IOException e) {
+                MetaioDebug.printStackTrace(Log.ERROR, e);
+                return false;
+            }
+            return true;
+        }
     }
 
   }
