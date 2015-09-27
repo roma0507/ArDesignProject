@@ -45,7 +45,7 @@
         android:contentDescription="@string/btnClose"
         android:onClick="newArDesign"
         android:tag="3"
-        android:src="@drawable/amarillo"
+        android:src="@drawable/ladrillos2"
         android:scaleType="fitCenter"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true" />
@@ -58,7 +58,7 @@
         android:contentDescription="@string/btnClose"
         android:onClick="newArDesign"
         android:tag="4"
-        android:src="@drawable/ladrillo"
+        android:src="@drawable/estuco1"
         android:scaleType="fitCenter"
         android:layout_alignTop="@+id/B"
         android:layout_alignParentLeft="true"
@@ -72,27 +72,12 @@
         android:contentDescription="@string/btnClose"
         android:onClick="newArDesign"
         android:tag="5"
-        android:src="@drawable/ladrillos_b"
+        android:src="@drawable/estuco2"
         android:scaleType="fitCenter"
         android:layout_above="@+id/C"
         android:layout_alignLeft="@+id/btnLadrillo2"
         android:layout_alignStart="@+id/btnLadrillo2"
         android:layout_marginBottom="38dp" />
-
-    <ImageButton
-        android:id="@+id/C"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/btnClose"
-        android:onClick="newArDesign"
-        android:tag="6"
-        android:src="@drawable/amarillo"
-        android:scaleType="fitCenter"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="150dp" />
 
     <ImageButton
         android:id="@+id/d"
@@ -102,11 +87,28 @@
         android:contentDescription="@string/btnClose"
         android:onClick="newArDesign"
         android:tag="7"
-        android:src="@drawable/amarillo"
+        android:src="@drawable/piedras1"
         android:scaleType="fitCenter"
         android:layout_alignTop="@+id/B"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/C"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/btnClose"
+        android:onClick="newArDesign"
+        android:tag="6"
+        android:src="@drawable/paredpiedra2"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="150dp" />
+
+
 
 </RelativeLayout>
 
