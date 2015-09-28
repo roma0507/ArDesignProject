@@ -32,10 +32,11 @@
             android:onClick="newArDesign"
             android:src="@drawable/pisoladrillo"
             android:scaleType="fitCenter"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:tag="9"
-            android:elevation="5dp"/>
+            android:elevation="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ImageButton
             android:id="@+id/imageButton3"
@@ -46,9 +47,11 @@
             android:onClick="newArDesign"
             android:src="@drawable/pisomadera"
             android:scaleType="fitCenter"
-            android:layout_alignParentTop="true"
             android:tag="10"
-            android:elevation="5dp"/>
+            android:elevation="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/imageButton4"
+            android:layout_alignStart="@+id/imageButton4" />
 
         <ImageButton
             android:id="@+id/imageButton2"

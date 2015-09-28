@@ -1,7 +1,7 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 27.09.2015 21:17:03
+# File Created: 27.09.2015 21:52:07
 
-newmtl Material__458
+newmtl Material__590
 	Ns 10.000000
 	Ni 1.500000
 	d 1.000000
@@ -12,5 +12,5 @@ newmtl Material__458
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka maps\pared_ladrillo_seguridad.bmp
-	map_Kd maps\pared_ladrillo_seguridad.bmp
+	map_Ka maps\techo_grafico.bmp
+	map_Kd maps\techo_grafico.bmp

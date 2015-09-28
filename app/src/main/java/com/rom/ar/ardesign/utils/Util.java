@@ -14,6 +14,18 @@ import com.rom.ar.ardesign.utils.enumerator.ModelParams;
 public class Util {
 
     /**
+     * Variables de entorno globales para le cargue del los paths de rastreo.
+     */
+    public final static String PATH_EJE_XYZ_PISO_MODEL = "ARSources/DesignModels/VizAidModel/eje_xyz_piso_pared.obj";
+    public final static String PATH_EJE_XYZ_PISO_TRACKING = "ARSources/TrackingConfig/piso/Tracking.xml";
+
+    public final static String PATH_EJE_XYZ_PARED_MODEL = "ARSources/DesignModels/VizAidModel/eje_xyz_piso_pared.obj";
+    public final static String PATH_EJE_XYZ_PARED_TRACKING = "ARSources/TrackingConfig/pared/Tracking.xml";
+
+    public final static String PATH_EJE_XYZ_TECHO_MODEL = "ARSources/DesignModels/VizAidModel/eje_xyz_techo.obj";
+    public final static String PATH_EJE_XYZ_TECHO_TRACKING = "ARSources/TrackingConfig/techo/Tracking.xml";
+
+    /**
      * Método que obtiene un modelo a partir del id del mismo.
      *
      * @param id id del modelo.

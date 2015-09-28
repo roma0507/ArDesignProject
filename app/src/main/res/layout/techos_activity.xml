@@ -16,7 +16,8 @@
             android:layout_height="80dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
-            android:onClick="onConstruccion"
+            android:onClick="newArDesign"
+            android:tag="14"
             android:src="@drawable/techoblanco"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
@@ -28,13 +29,12 @@
             android:layout_height="80dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
-            android:onClick="onConstruccion"
+            android:onClick="newArDesign"
+            android:tag="15"
             android:src="@drawable/techotextura"
             android:scaleType="fitCenter"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
-
-
 
     </RelativeLayout>
 

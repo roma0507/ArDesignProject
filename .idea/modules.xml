@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ArDesign.iml" filepath="$PROJECT_DIR$/ArDesign.iml" />
       <module fileurl="file://$PROJECT_DIR$/ArDesignProject.iml" filepath="$PROJECT_DIR$/ArDesignProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/metaiosdk/metaiosdk.iml" filepath="$PROJECT_DIR$/metaiosdk/metaiosdk.iml" />
