@@ -51,7 +51,7 @@
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
             android:label="@string/title_activity_ar_tracking_view" >
         </activity>
-        <activity android:name=".activity.TabsActivity" ></activity>
+        <activity android:name=".activity.TabsActivity"   android:screenOrientation="portrait"></activity>
         <activity android:name=".activity.ConstruccionActivity" ></activity>
     </application>
 

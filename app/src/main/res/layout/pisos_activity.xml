@@ -17,11 +17,12 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
             android:onClick="newArDesign"
-            android:src="@drawable/ceramica"
-            android:layout_alignParentTop="true"
+            android:src="@drawable/alfombra1"
             android:tag="8"
             android:scaleType="fitCenter"
-            android:elevation="5dp"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <ImageButton
             android:id="@+id/btnLadrillo2"
@@ -30,13 +31,11 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
             android:onClick="newArDesign"
-            android:src="@drawable/pisoladrillo"
+            android:tag="13"
+            android:src="@drawable/tableta"
             android:scaleType="fitCenter"
-            android:tag="9"
-            android:elevation="5dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_centerHorizontal="true" />
 
         <ImageButton
             android:id="@+id/imageButton3"
@@ -45,58 +44,62 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
             android:onClick="newArDesign"
+            android:tag="10"
             android:src="@drawable/pisomadera"
             android:scaleType="fitCenter"
-            android:tag="10"
-            android:elevation="5dp"
             android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageButton4"
-            android:layout_alignStart="@+id/imageButton4" />
+            android:layout_alignParentRight="true" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/A"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
             android:onClick="newArDesign"
+            android:tag="11"
             android:src="@drawable/alfombra2"
             android:scaleType="fitCenter"
-            android:elevation="5dp"
-            android:tag="11"
-            android:layout_centerVertical="true"
+            android:layout_alignTop="@+id/B"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/B"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
             android:onClick="newArDesign"
+            android:tag="12"
             android:src="@drawable/pisomaderab"
             android:scaleType="fitCenter"
-            android:elevation="5dp"
-            android:tag="12"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_above="@+id/C"
+            android:layout_alignLeft="@+id/btnLadrillo2"
+            android:layout_alignStart="@+id/btnLadrillo2"
+            android:layout_marginBottom="38dp" />
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/d"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/btnClose"
-            android:onClick="newArDesign"
-            android:src="@drawable/tableta"
             android:scaleType="fitCenter"
-            android:elevation="5dp"
-            android:tag="13"
-            android:layout_alignTop="@+id/imageButton4"
+            android:layout_alignTop="@+id/B"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
+        <ImageButton
+            android:id="@+id/C"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/btnClose"
+            android:scaleType="fitCenter"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="150dp" />
     </RelativeLayout>
+
 
 </LinearLayout>
